@@ -1,6 +1,6 @@
 # Mahtab-weather-app
 **DEMO**
-![Image](https://github.com/user-attachments/assets/7b28df2a-7174-4d65-9c49-b649ba2e05fa)
+![Image](https://github.com/user-attachments/assets/3765b888-a59f-4865-bf69-90f25a485db1)
 - [Demo Project](https://mahtab-weather-app.vercel.app/)
 - Developed by AmirMohammad Ahadi
 - Created - 2026-23-10
