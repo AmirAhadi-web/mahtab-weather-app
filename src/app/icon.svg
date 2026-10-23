@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="8" fill="#24282D"/>
+  <mask id="mahtab-moon"><circle cx="15.5" cy="17" r="9" fill="white"/><circle cx="20.9" cy="12" r="7.8" fill="black"/></mask>
+  <circle cx="15.5" cy="17" r="9" fill="#FF9F43" mask="url(#mahtab-moon)"/>
+  <circle cx="23.6" cy="8.2" r="1.5" fill="#FFD194"/>
+</svg>

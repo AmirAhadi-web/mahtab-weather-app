@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Mahtab design tokens — dark theme is the default, .light overrides below.
+--------------------------------------------------------------------------- */
+
+:root,
+.dark {
+  --bg: #17191c;
+  --surface: #24282d;
+  --surface-2: #2d3238;
+  --surface-3: #353b43;
+  --ink: #f4f5f6;
+  --muted: #b0b6bf;
+  --faint: #858e99;
+  --accent: #ff9f43;
+  --accent-strong: #ffad5c;
+  --accent-pressed: #e8872d;
+  --accent-soft: #3a2b20;
+  --accent-ink: #22150a;
+  --line: #383d44;
+  --line-strong: #4a5058;
+  --ring: rgba(255, 159, 67, 0.55);
+  --success: #65c995;
+  --warn: #ffb454;
+  --danger: #ff7777;
+  --chart: #ff9f43;
+  --shadow: rgba(0, 0, 0, 0.55);
+  --range-lo: #78b9f2;
+  --range-hi: #ffb454;
+  --wx-clear: #ffb454;
+  --wx-partly: #ffb454;
+  --wx-cloudy: #a8b2bf;
+  --wx-fog: #96a0ac;
+  --wx-drizzle: #78b9f2;
+  --wx-rain: #78b9f2;
+  --wx-snow: #b9e5ff;
+  --wx-storm: #8a9bff;
+  --sun-hi: #ffd194;
+  --sun-lo: #ff9f43;
+  --moon-hi: #eceef2;
+  --moon-lo: #9aa3b1;
+  --cloud-hi: #e4e9ee;
+  --cloud-lo: #a8b2bf;
+  --cloud-back: #6e7883;
+  --rain-drop: #78b9f2;
+  --snow-flake: #b9e5ff;
+  --bolt: #ffb454;
+}
+
+.light {
+  --bg: #f4f3f1;
+  --surface: #ffffff;
+  --surface-2: #eeebe7;
+  --surface-3: #e3dfd9;
+  --ink: #1f2125;
+  --muted: #575d66;
+  --faint: #8b9099;
+  --accent: #b46416;
+  --accent-strong: #9c5710;
+  --accent-pressed: #864b0c;
+  --accent-soft: #f8e4cc;
+  --accent-ink: #ffffff;
+  --line: rgba(66, 56, 44, 0.14);
+  --line-strong: rgba(66, 56, 44, 0.24);
+  --ring: rgba(180, 100, 22, 0.5);
+  --success: #2f8a5c;
+  --warn: #b46416;
+  --danger: #c24545;
+  --chart: #b46416;
+  --shadow: rgba(50, 40, 25, 0.12);
+  --range-lo: #4e96d8;
+  --range-hi: #e8872d;
+  --wx-clear: #d07a1e;
+  --wx-partly: #d07a1e;
+  --wx-cloudy: #78818d;
+  --wx-fog: #838c96;
+  --wx-drizzle: #3e86cc;
+  --wx-rain: #3e86cc;
+  --wx-snow: #5fa8d5;
+  --wx-storm: #5f72e8;
+  --sun-hi: #ffc870;
+  --sun-lo: #e8872d;
+  --moon-hi: #dfe6f2;
+  --moon-lo: #93a0b8;
+  --cloud-hi: #ffffff;
+  --cloud-lo: #a8b2bf;
+  --cloud-back: #8a94a1;
+  --rain-drop: #4e96d8;
+  --snow-flake: #93c4e4;
+  --bolt: #e8872d;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-pressed: var(--accent-pressed);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-chart: var(--chart);
+}
+
+/* --------------------------------- base ---------------------------------- */
+
+html {
+  color-scheme: dark;
+}
+
+.light {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family:
+    var(--font-geist-sans),
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  font-feature-settings: "ss01" on, "cv11" on;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Soft ambient wash behind everything. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(52rem 30rem at 85% -10%, rgba(255, 159, 67, 0.07), transparent 65%),
+    radial-gradient(40rem 26rem at -10% 30%, rgba(122, 138, 235, 0.05), transparent 60%);
+}
+
+.light body::before {
+  background:
+    radial-gradient(52rem 30rem at 85% -10%, rgba(180, 100, 22, 0.08), transparent 65%),
+    radial-gradient(40rem 26rem at -10% 30%, rgba(95, 114, 232, 0.04), transparent 60%);
+}
+
+::selection {
+  background: rgba(255, 159, 67, 0.28);
+}
+
+.light ::selection {
+  background: rgba(180, 100, 22, 0.18);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ------------------------------ scrollbars ------------------------------- */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------------------------- helper utilities ---------------------------- */
+
+.scroll-fade-x {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 28px,
+    black calc(100% - 28px),
+    transparent
+  );
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.card-hover {
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+.card-hover:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}
+
+/* ------------------------------- keyframes -------------------------------- */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .animate-enter {
+    animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-fade {
+    animation: fade-in 0.4s ease both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-enter,
+  .animate-fade {
+    animation: none;
+  }
+}
